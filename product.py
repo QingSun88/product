@@ -1,6 +1,11 @@
+#检查档案是否在文件中
+import os    #载入 作业系统operating system
+
 #读取档案
 products = []
-with open('products.csv','r',encoding = 'utf-8') as f:
+if os.path.isfile('products.csv'):#os里面的path路经有没有文档
+	print('yes,it is here!')
+	with open('products.csv','r',encoding = 'utf-8') as f:
 	for line in f:
 		if '商品，价格' in line:
 			continue 
@@ -8,7 +13,10 @@ with open('products.csv','r',encoding = 'utf-8') as f:
 			#continue不会跳出回圈，不像break
 		name, price = line.strip().split(',')
 		products.append([name,price])
-print(products)
+	print(products)
+else:
+	print('no,it is not here')
+
 
 #让使用者输入
 while True:
