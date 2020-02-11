@@ -1,6 +1,6 @@
 #读取档案
 products = []
-with open('product.csv','r',encoding = 'utf-8') as f:
+with open('products.csv','r',encoding = 'utf-8') as f:
 	for line in f:
 		if '商品，价格' in line:
 			continue 
@@ -29,7 +29,7 @@ for p in products:
 	print(p[0], 'its price is', p[1])
 
 #写入档案
-with open('products.txt', 'w',encoding = 'utf-8') as f: 
+with open('products.csv', 'w',encoding = 'utf-8') as f: 
 	f.write('商品, 价格 \n')
 	for p in products:
 		f.write(p[0] + ',' + str(p[1]) + '\n')  
